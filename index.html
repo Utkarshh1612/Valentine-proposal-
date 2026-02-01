@@ -3,95 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>Be My Valentine 💖</title>
+
     <style>
-        body { 
-            text-align: center; 
-            font-family: 'Comic Sans MS', cursive, sans-serif; 
-            background-color: #ffeef2; 
-            padding-top: 50px; 
+        body {
             margin: 0;
             height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff4d6d, #ff758f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
             overflow: hidden;
         }
-        .container { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 20px; 
-            display: inline-block; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-            position: relative;
-            max-width: 90%;
+
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 380px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            animation: fadeIn 0.6s ease;
         }
-        h1 { 
-            color: #ff4d6d; 
-            margin: 20px 0;
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
-        .btn { 
-            font-size: 20px; 
-            padding: 12px 30px; 
-            border: none; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            margin: 15px; 
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-        #yesBtn { 
-            background-color: #ff4d6d; 
-            color: white; 
-        }
-        #yesBtn:hover {
-            background-color: #ff3366;
-            transform: scale(1.08);
-        }
-        #noBtn { 
-            background-color: #888; 
-            color: white; 
-            position: absolute;
-        }
-        #noBtn:hover {
-            background-color: #777;
-        }
-        img { 
-            width: 220px; 
-            border-radius: 15px; 
+
+        h1 {
+            font-size: 26px;
             margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        p {
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #yesBtn {
+            background: #2ecc71;
+            color: white;
+        }
+
+        #noBtn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .date {
+            background: rgba(255,255,255,0.25);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 12px 0;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueGZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26hp8uO78u572Y/giphy.gif" alt="Cute animated cat">
-        <h1>Will you be my Valentine?</h1>
-        <button class="btn" id="yesBtn" onclick="alert('Yayyyy! â¤ï¸ See you on the 14th!');">
-            YES
-        </button>
-        <button class="btn" id="noBtn" onmouseover="moveButton()">
-            NO
-        </button>
-    </div>
+<div class="card" id="card">
+    <h1>Palak, will you be my Valentine? 💖</h1>
+    <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
+    <button id="noBtn" onclick="noClicked()">No 😅</button>
+</div>
 
-    <script>
-        function moveButton() {
-            const btn = document.getElementById('noBtn');
-            const maxX = window.innerWidth - btn.offsetWidth - 40;
-            const maxY = window.innerHeight - btn.offsetHeight - 40;
-            
-            const x = Math.random() * maxX;
-            const y = Math.random() * maxY;
-            
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-        }
+<script>
+    function yesClicked() {
+        document.getElementById("card").innerHTML = `
+            <h1>YAYYYYY! 💖🎉</h1>
+            <p>I am soooo happyyyy 🥺❤️</p>
+            <p>Now tell me… our dates? 😌✨</p>
 
-        // Optional: make it harder by moving when trying to click
-        document.getElementById('noBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            moveButton();
-        });
-    </script>
+            <div class="date">
+                ☕ <b>Cafe Date</b><br>
+                Coffee, soft talks, stolen smiles & endless eye contact 💕
+            </div>
+
+            <div class="date">
+                🎬 <b>Movie Date</b><br>
+                Dark theatre, shared popcorn & hands finding each other ❤️🍿
+            </div>
+
+            <div class="date">
+                🚶‍♂️🎶 <b>Walking Date</b><br>
+                Holding hands, earphones shared, favourite songs & quiet love 🌙💞
+            </div>
+
+            <p>You + Me = Perfect Plan 🫶✨</p>
+        `;
+    }
+
+    function noClicked() {
+        document.getElementById("card").innerHTML = `
+            <h1>Oops 😜</h1>
+            <p>Nice try… but you can’t say no 😌💖</p>
+            <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
+        `;
+    }
+</script>
+
 </body>
 </html>
